@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Sahay App...</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7f6;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #e67e22;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        h2 { color: #2c3e50; }
+        p { color: #7f8c8d; }
+        
+        .btn {
+            background: #e67e22;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="loader"></div>
+    <h2>Opening Our App</h2>
+    <p>You are being redirected to the <b>Sahay</b> app.</p>
+    <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+    
+    <a href="https://adaptivelearningngo-c4xkbrjduyvo8ua7tsjeew.streamlit.app" id="appLink" class="btn">Click here if not redirected</a>
+</div>
+
+<script>
+    // 1. REPLACE THIS with your actual Play Store/App Store/Direct Link
+    const myAppLink = "https://adaptivelearningngo-c4xkbrjduyvo8ua7tsjeew.streamlit.app"; 
+    
+    let seconds = 5;
+    const countdownEl = document.getElementById('countdown');
+
+    const timer = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = seconds;
+        if (seconds <= 0) {
+            clearInterval(timer);
+            window.location.href = myAppLink;
+        }
+    }, 1000);
+
+    // Optional: Try to redirect immediately for better UX
+    // window.location.href = myAppLink; 
+</script>
+
+</body>
+</html>
